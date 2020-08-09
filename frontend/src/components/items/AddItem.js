@@ -24,7 +24,7 @@ function AddItem(props) {
       />
       <input
         type='text'
-        name='brakes_id'
+        name='brakesId'
         className='submission_box'
         placeholder='Add Brakes ID...'
         value={ brakesId }

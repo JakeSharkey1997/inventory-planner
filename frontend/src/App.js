@@ -25,8 +25,8 @@ function App() {
   }
 
   // Add Item
-  const addItem = async(item, brakes_id) => {
-    const item_obj = { item, brakes_id }
+  const addItem = async(item, brakesId) => {
+    const item_obj = { item, brakesId }
     const response = await fetch("/add-item", {
       method: "POST",
       headers: {
@@ -41,8 +41,8 @@ function App() {
   }
 
   // Edit Item
-  const editItem = async(key, item, brakes_id) => {
-    console.log(key)
+  const editItem = async(item, brakesId) => {
+
   }
 
 

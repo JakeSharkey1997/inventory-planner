@@ -65,7 +65,7 @@ def get_all_items():
         result = {
             'key': row['id'],
             'item': row['item'],
-            'brakes_id': row['brakes_id']
+            'brakesId': row['brakes_id']
         }
         results.append(result)
     return results

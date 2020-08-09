@@ -25,7 +25,7 @@ def create_app():
     def add_item():
         key = str(uuid.uuid4())
         item = request.json['item']
-        brakes_id = request.json['brakes_id']
+        brakes_id = request.json['brakesId']
         db.add_item(key, item, brakes_id)
         return 'Added item'
 
@@ -43,7 +43,7 @@ def create_app():
     def edit_item():
         key = request.json['key']
         item_updated = request.json['item_updated']
-        brakes_id_updated = request.json['brakes_id_updated']
+        brakes_id_updated = request.json['brakesId_updated']
         db.edit_item(key, item_updated, brakes_id_updated)
         return 'Item edited'
 
