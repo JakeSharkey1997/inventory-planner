@@ -69,3 +69,10 @@ def get_all_items():
         }
         results.append(result)
     return results
+
+
+def edit_item(key, item_updated, brakes_id_updated):
+    db = get_db()
+    cursor = db.cursor()
+    cursor.execute('UPDATE list SET item = ?, brakes_id = ? WHERE id = ?', (item_updated, brakes_id_updated, key))
+    db.commit()

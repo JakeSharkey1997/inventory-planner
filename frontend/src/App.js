@@ -40,6 +40,12 @@ function App() {
     }
   }
 
+  // Edit Item
+  const editItem = async(key, item, brakes_id) => {
+    console.log(key)
+  }
+
+
   // Get all items from database
   const getAllItems = () => {
     fetch("/get-all-items").then(resp =>
@@ -59,7 +65,7 @@ function App() {
       <div className="container">
         <Header />
         <AddItem addItem={ addItem }/>
-        <Items items={ items } delItem={ delItem }/>
+        <Items items={ items } delItem={ delItem } editItem={ editItem }/>
       </div>
     </div>
   );

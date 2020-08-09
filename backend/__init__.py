@@ -39,4 +39,12 @@ def create_app():
     def get_all_items():
         return {'results': db.get_all_items()}
 
+    @app.route('/edit-item', methods=['PUT'])
+    def edit_item():
+        key = request.json['key']
+        item_updated = request.json['item_updated']
+        brakes_id_updated = request.json['brakes_id_updated']
+        db.edit_item(key, item_updated, brakes_id_updated)
+        return 'Item edited'
+
     return app

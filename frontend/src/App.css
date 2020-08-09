@@ -48,7 +48,15 @@ body {
   padding: 1px 8px;
   border-radius: 50%;
   cursor: pointer;
+  float: left;
+}
+
+.editbtn {
   float: right;
+  background-color: #666;
+  color: #fff;
+  padding: 2px 15px;
+  border-radius: 10%;
 }
 
 table.all-items {
