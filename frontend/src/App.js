@@ -41,8 +41,18 @@ function App() {
   }
 
   // Edit Item
-  const editItem = async(item, brakesId) => {
-
+  const editItem = async(item) => {
+    const response = await fetch("/edit-item", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(item)
+    });
+    if (response.ok) {
+      console.log("Item edited")
+      getAllItems()
+    }
   }
 
 
@@ -65,7 +75,7 @@ function App() {
       <div className="container">
         <Header />
         <AddItem addItem={ addItem }/>
-        <Items items={ items } delItem={ delItem } editItem={ editItem }/>
+        <Items items={ items } delItem={ delItem } editItem={ editItem } addItem={ addItem }/>
       </div>
     </div>
   );

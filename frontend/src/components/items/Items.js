@@ -25,7 +25,7 @@ function Items(props) {
 Items.propTypes = {
   items: PropTypes.array.isRequired,
   delItem: PropTypes.func.isRequired,
-  editItem: PropTypes.func.isRequired
+  editItem: PropTypes.func.isRequired,
 }
 
 export default Items;

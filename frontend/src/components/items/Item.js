@@ -9,7 +9,7 @@ function Item (props) {
       <td><button onClick={ props.delItem.bind(this, key) } className='delbtn'>x</button></td>
       <td>{ item }</td>
       <td>{ brakesId }</td>
-      <td><EditItem item={item} brakesId={brakesId} /></td>
+      <td><EditItem item={ props.item } editItem={ props.editItem }/></td>
    </tr> 
   )
 }
@@ -18,7 +18,7 @@ function Item (props) {
 Item.propTypes = {
   item: PropTypes.object.isRequired,
   delItem: PropTypes.func.isRequired,
-  editItem: PropTypes.func.isRequired
+  editItem: PropTypes.func.isRequired,
 }
 
 export default Item;

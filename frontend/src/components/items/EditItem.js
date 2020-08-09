@@ -8,14 +8,15 @@ function EditItem(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [item, setItem] = useState(props.item)
-  const [brakesId, setBrakesId] = useState(props.brakesId)
+  const [item, setItem] = useState(props.item.item)
+  const [brakesId, setBrakesId] = useState(props.item.brakesId)
 
   const onSubmit = (e) => {
     e.preventDefault();
-    props.addItem(item, brakesId)
-    setItem('')
-    setBrakesId('')
+    const key = props.item.key
+    const item_obj = { key, item, brakesId}
+    props.editItem(item_obj)
+    handleClose()
   }
 
   return (
@@ -30,33 +31,27 @@ function EditItem(props) {
         </Modal.Header>
         <Modal.Body>
           <form onSubmit={ onSubmit } className='form'>
-            <input
-              type='text'
-              name='item'
-              className='submission_box'
-              value={ item }
-              onChange={ e => setItem(e.target.value) }
-            />
-            <input
-              type='text'
-              name='brakesId'
-              className='submission_box'
-              value={ brakesId }
-              onChange={ e => setBrakesId(e.target.value) }
-            />
-            <input
-              type='submit'
-              value='Submit'
-              className='btn'
-              onClick={ onSubmit }
-            />
-          </form>
+              <input
+                type='text'
+                name='item'
+                className='submission_box'
+                value={ item }
+                onChange={ e => setItem(e.target.value) }
+              />
+              <input
+                type='text'
+                name='brakesId'
+                className='submission_box'
+                value={ brakesId }
+                onChange={ e => setBrakesId(e.target.value) }
+              />
+            </form>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={onSubmit}>
             Save Changes
           </Button>
         </Modal.Footer>
@@ -69,6 +64,7 @@ function EditItem(props) {
 EditItem.propTypes = {
   item: PropTypes.string.isRequired,
   brakesId: PropTypes.string.isRequired,
+  editItem: PropTypes.func.isRequired
 }
 
 
