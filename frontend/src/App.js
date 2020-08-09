@@ -25,14 +25,13 @@ function App() {
   }
 
   // Add Item
-  const addItem = async(item, brakesId) => {
-    const item_obj = { item, brakesId }
+  const addItem = async(item) => {
     const response = await fetch("/add-item", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(item_obj)
+      body: JSON.stringify(item)
     });
     if (response.ok) {
       console.log("Item added")

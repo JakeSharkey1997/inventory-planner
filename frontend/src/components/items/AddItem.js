@@ -7,7 +7,8 @@ function AddItem(props) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    props.addItem(item, brakesId)
+    const item_obj = {item, brakesId}
+    props.addItem(item_obj)
     setItem('')
     setBrakesId('')
   }
