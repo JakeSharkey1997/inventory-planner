@@ -42,16 +42,24 @@ body {
 }
 
 .delbtn {
-  background: #cccccc;
+  background: #FF0800;
   color: #fff;
   border: none;
   padding: 1px 8px;
   border-radius: 50%;
   cursor: pointer;
-  float: left;
+  float: right;
 }
 
 .editbtn {
+  float: right;
+  background-color: #666;
+  color: #fff;
+  padding: 2px 15px;
+  border-radius: 10%;
+}
+
+.deltogglebtn {
   float: right;
   background-color: #666;
   color: #fff;

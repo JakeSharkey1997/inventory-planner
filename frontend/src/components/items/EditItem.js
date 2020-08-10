@@ -62,8 +62,7 @@ function EditItem(props) {
 
 // PropTypes
 EditItem.propTypes = {
-  item: PropTypes.string.isRequired,
-  brakesId: PropTypes.string.isRequired,
+  item: PropTypes.object.isRequired,
   editItem: PropTypes.func.isRequired
 }
 
