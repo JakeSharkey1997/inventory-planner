@@ -1,8 +1,8 @@
 from setuptools import find_packages, setup
 
 setup(
-    name='inventory_planner_backend',
-    version='1.0.0',
+    name='inventory_planner',
+    version='1.0.2',
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
