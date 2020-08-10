@@ -21,7 +21,7 @@ function EditItem(props) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow} className='editbtn'>
+      <Button variant="primary" onClick={handleShow} className='editBtn'>
         Edit
       </Button>
 

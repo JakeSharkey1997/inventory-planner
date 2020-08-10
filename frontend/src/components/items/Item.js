@@ -5,14 +5,13 @@ import EditItem from './EditItem';
 function Item (props) {
   const { key, item, brakesId } = props.item;
   const button =
-    <button onClick={ props.delItem.bind(this, key) } className='delbtn'>x</button>
+    <button onClick={ props.delItem.bind(this, key) } className='delBtn'>x</button>
   
   return (
    <tr>
       <td>{ item }</td>
       <td>{ brakesId }</td>
-      <td><EditItem item={ props.item } editItem={ props.editItem }/></td>
-      <td>{ props.showDelBtn ? button : ''}</td>
+      <td className='editBtnContainer'><EditItem item={ props.item } editItem={ props.editItem } className='editBtn'/>{ props.showDelBtn ? button : ''}</td>
    </tr> 
   )
 }

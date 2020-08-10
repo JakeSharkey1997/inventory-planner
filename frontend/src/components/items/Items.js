@@ -8,13 +8,15 @@ function Items(props) {
     setShowDelBtn(!showDelBtn)
   }
 
+  const delItemBtnStyle = 
+    showDelBtn ?  'delToggleBtnOn': 'delToggleBtnOff'
+
   return <table className='table all-items'>
       <thead>
         <tr>
           <th>Item</th>
           <th>Brakes ID</th>
-          <th></th>
-          <th><button onClick={ deltoggle } className='deltogglebtn'>Delete Item</button></th>
+          <th className='delBtnContainer'><button onClick={ deltoggle } className={ delItemBtnStyle } >Delete</button></th>
         </tr>
       </thead>
       <tbody>
