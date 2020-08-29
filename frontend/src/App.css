@@ -18,7 +18,7 @@ body {
   padding: 0, .01rem;
 }
 
-.btn {
+.inputBtn {
   display: inline-block;
   border: none;
   background: #555;
@@ -28,7 +28,7 @@ body {
   flex: 1;
 }
 
-.btn:hover {
+.inputBtn:hover {
   background: #666;
 }
 
@@ -83,9 +83,9 @@ body {
 }
 
 table.all-items {
-  background: '#fefefe';
-  padding: '10px';
-  border-bottom: '1px #ccc dotted';
+  background: #fefefe;
+  padding: 10px;
+  border-bottom: 1px #ccc dotted;
 }
 
 .header-style{

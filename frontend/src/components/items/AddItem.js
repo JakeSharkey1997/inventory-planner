@@ -13,6 +13,14 @@ function AddItem(props) {
     setBrakesId('')
   }
 
+  const setItemValue = (e) => {
+    setItem(e.target.value)
+  }
+
+  const setBrakesIdValue = (e) => {
+    setBrakesId(e.target.value)
+  }
+
   return (
     <form onSubmit={ onSubmit } className='form'>
       <input
@@ -21,7 +29,7 @@ function AddItem(props) {
         className='submission_box'
         placeholder='Add Item...'
         value={ item }
-        onChange={ e => setItem(e.target.value) }
+        onChange={ setItemValue }
       />
       <input
         type='text'
@@ -29,14 +37,11 @@ function AddItem(props) {
         className='submission_box'
         placeholder='Add Brakes ID...'
         value={ brakesId }
-        onChange={ e => setBrakesId(e.target.value) }
+        onChange={ setBrakesIdValue }
       />
-      <input
-        type='submit'
-        value='Submit'
-        className='btn'
-        onClick={ onSubmit }
-      />
+      <button className='inputBtn' onClick={ onSubmit }>
+        Submit
+      </button>
     </form>
   )
 }
