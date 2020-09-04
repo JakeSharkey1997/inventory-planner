@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import EditItem from './EditItem';
+import Tick from './Tick';
 
-function Item (props) {
+export default function Item (props) {
   const { key, item, brakesId } = props.item;
   const button =
     <button onClick={ props.delItem.bind(this, key) } className='delBtn'>x</button>
-  
+
+  const [lineStyle, setLineStyle] = useState(false);
+  const lineToggle = () => {
+    setLineStyle(!lineStyle)}
+
+  const strikestyle = 
+  lineStyle ?  'strikeOn': 'strikeOff'
+
   return (
    <tr>
-      <td>{ item }</td>
-      <td>{ brakesId }</td>
-      <td className='editBtnContainer'><EditItem item={ props.item } editItem={ props.editItem } className='editBtn'/>{ props.showDelBtn ? button : ''}</td>
+      <td className={strikestyle}>{ item }</td>
+      <td className={strikestyle}>{ brakesId }</td>
+      <td className='editBtnContainer'><EditItem item={ props.item } editItem={ props.editItem } className='editBtn'/></td>
+      <td><Tick item={ props.item } lineToggle = {lineToggle}/>{ props.showDelBtn ? button : ''}</td>
    </tr> 
   )
 }
@@ -23,5 +32,3 @@ Item.propTypes = {
   editItem: PropTypes.func.isRequired,
   showDelBtn: PropTypes.bool.isRequired
 }
-
-export default Item;

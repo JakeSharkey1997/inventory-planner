@@ -1,4 +1,4 @@
-import React, { useState }from 'react';
+import React, { useState } from 'react';
 import Item from './Item';
 import PropTypes from 'prop-types'
 
@@ -16,6 +16,7 @@ function Items(props) {
         <tr>
           <th>Item</th>
           <th>Brakes ID</th>
+          <th></th>
           <th className='delBtnContainer'><button onClick={ deltoggle } className={ delItemBtnStyle } >Delete</button></th>
         </tr>
       </thead>
