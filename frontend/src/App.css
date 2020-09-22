@@ -61,6 +61,15 @@ body {
   float: right;
 }
 
+.editmodal {
+  display: block;
+}
+
+.modalcon {
+  margin: 15px;
+  font-size: large;
+}
+
 .delBtnContainer {
   width: 100px;
 }

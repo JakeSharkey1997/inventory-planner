@@ -10,11 +10,12 @@ function EditItem(props) {
 
   const [item, setItem] = useState(props.item.item)
   const [brakesId, setBrakesId] = useState(props.item.brakesId)
+  const [category, setCategory] = useState(props.item.category)
 
   const onSubmit = (e) => {
     e.preventDefault();
     const key = props.item.key
-    const item_obj = { key, item, brakesId}
+    const item_obj = { key, item, brakesId, category}
     props.editItem(item_obj)
     handleClose()
   }
@@ -30,22 +31,34 @@ function EditItem(props) {
           <Modal.Title>Edit Item</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form onSubmit={ onSubmit } className='form'>
-              <input
-                type='text'
-                name='item'
-                className='submission_box'
-                value={ item }
-                onChange={ e => setItem(e.target.value) }
-              />
-              <input
-                type='text'
-                name='brakesId'
-                className='submission_box'
-                value={ brakesId }
-                onChange={ e => setBrakesId(e.target.value) }
-              />
-            </form>
+            <form onSubmit={ onSubmit } className='editmodal'>
+              <div className='modalcon'>
+                <input
+                  type='text'
+                  name='item'
+                  className='submission_box'
+                  value={ item }
+                  onChange={ e => setItem(e.target.value) }
+                />
+              </div>
+              <div className='modalcon'>
+                <input
+                  type='text'
+                  name='brakesId'
+                  className='submission_box'
+                  value={ brakesId }
+                  onChange={ e => setBrakesId(e.target.value) }
+                />
+              </div>
+              <div className='modalcon'>
+                <select value={ category } onChange= {e => setCategory(e.target.value) }>
+                  <option value="" hidden>Category</option>
+                  <option value="0">Frozen</option>
+                  <option value="1">Chilled</option>
+                  <option value="2">Ambient</option>
+                </select>
+              </div>
+              </form>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
