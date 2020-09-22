@@ -58,7 +58,7 @@ def del_item(key):
 
 def get_all_items():
     cursor = get_db().cursor()
-    cursor.execute('SELECT * FROM items')
+    cursor.execute('SELECT * FROM items LEFT JOIN category ON items.category = category.id')
     rows = cursor.fetchall()
     results = []
     for row in rows:
@@ -66,7 +66,8 @@ def get_all_items():
             'key': row['id'],
             'item': row['item'],
             'brakesId': row['brakes_id'],
-            'category': row['category']
+            'category': row['category'],
+            'categoryTitle': row['title']
         }
         results.append(result)
     return results

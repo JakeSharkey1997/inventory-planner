@@ -16,13 +16,14 @@ function Items(props) {
         <tr>
           <th>Item</th>
           <th>Brakes ID</th>
+          <th>Category</th>
           <th></th>
           <th className='delBtnContainer'><button onClick={ deltoggle } className={ delItemBtnStyle } >Delete</button></th>
         </tr>
       </thead>
       <tbody>
         { props.items.map((item) => (
-          <Item key={ item.key } item={ item } delItem={ props.delItem } editItem={ props.editItem } showDelBtn={ showDelBtn }/>
+          <Item item={ item } delItem={ props.delItem } editItem={ props.editItem } showDelBtn={ showDelBtn }/>
         ))
         }
       </tbody>

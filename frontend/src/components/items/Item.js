@@ -4,7 +4,7 @@ import EditItem from './EditItem';
 import Tick from './Tick';
 
 export default function Item (props) {
-  const { key, item, brakesId } = props.item;
+  const { key, item, brakesId, category, categoryTitle } = props.item;
   const button =
     <button onClick={ props.delItem.bind(this, key) } className='delBtn'>x</button>
 
@@ -19,6 +19,7 @@ export default function Item (props) {
    <tr>
       <td className={strikestyle}>{ item }</td>
       <td className={strikestyle}>{ brakesId }</td>
+      <td className={strikestyle}>{ categoryTitle }</td>
       <td className='editBtnContainer'><EditItem item={ props.item } editItem={ props.editItem } className='editBtn'/></td>
       <td><Tick item={ props.item } lineToggle = {lineToggle}/>{ props.showDelBtn ? button : ''}</td>
    </tr> 
