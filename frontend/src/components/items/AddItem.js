@@ -45,14 +45,12 @@ function AddItem(props) {
         value={ brakesId }
         onChange={ setBrakesIdValue }
       />
-      <input
-        type='text'
-        name='category'
-        className='submission_box'
-        placeholder='Category'
-        value={ category }
-        onChange={ setCategoryValue }
-      />
+      <select value={category} onChange= {setCategoryValue}>
+        <option value="" hidden>Category</option>
+        <option value="0">Frozen</option>
+        <option value="1">Chilled</option>
+        <option value="2">Ambient</option>
+      </select>
       <button className='inputBtn' onClick={ onSubmit }>
         Submit
       </button>
