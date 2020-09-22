@@ -4,13 +4,15 @@ import PropTypes from 'prop-types';
 function AddItem(props) {
   const [item, setItem] = useState('')
   const [brakesId, setBrakesId] = useState('')
+  const [category, setCategory] = useState('')
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const item_obj = {item, brakesId}
+    const item_obj = {item, brakesId, category}
     props.addItem(item_obj)
     setItem('')
     setBrakesId('')
+    setCategory('')
   }
 
   const setItemValue = (e) => {
@@ -19,6 +21,10 @@ function AddItem(props) {
 
   const setBrakesIdValue = (e) => {
     setBrakesId(e.target.value)
+  }
+
+  const setCategoryValue = (e) => {
+    setCategory(e.target.value)
   }
 
   return (
@@ -38,6 +44,14 @@ function AddItem(props) {
         placeholder='Add Brakes ID...'
         value={ brakesId }
         onChange={ setBrakesIdValue }
+      />
+      <input
+        type='text'
+        name='category'
+        className='submission_box'
+        placeholder='Category'
+        value={ category }
+        onChange={ setCategoryValue }
       />
       <button className='inputBtn' onClick={ onSubmit }>
         Submit

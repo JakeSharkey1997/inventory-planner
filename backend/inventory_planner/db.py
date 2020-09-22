@@ -41,38 +41,42 @@ def init_app(app):
     app.cli.add_command(init_db_command)
 
 
-def add_item(key, item, brakes_id):
+def add_item(key, item, brakes_id, category):
     db = get_db()
     cursor = db.cursor()
-    items = (key, item, brakes_id)
-    cursor.execute('INSERT INTO list VALUES (?,?,?)', items)
+    items = (key, item, brakes_id, category)
+    cursor.execute('INSERT INTO items VALUES (?,?,?,?)', items)
     db.commit()
 
 
 def del_item(key):
     db = get_db()
     cursor = db.cursor()
-    cursor.execute('DELETE FROM list WHERE id = ?', (key,))
+    cursor.execute('DELETE FROM items WHERE id = ?', (key,))
     db.commit()
 
 
 def get_all_items():
     cursor = get_db().cursor()
-    cursor.execute('SELECT * FROM list')
+    cursor.execute('SELECT * FROM items')
     rows = cursor.fetchall()
     results = []
     for row in rows:
         result = {
             'key': row['id'],
             'item': row['item'],
-            'brakesId': row['brakes_id']
+            'brakesId': row['brakes_id'],
+            'category': row['category']
         }
         results.append(result)
     return results
 
 
-def edit_item(key, item_updated, brakes_id_updated):
+def edit_item(key, item_updated, brakes_id_updated, category_updated):
     db = get_db()
     cursor = db.cursor()
-    cursor.execute('UPDATE list SET item = ?, brakes_id = ? WHERE id = ?', (item_updated, brakes_id_updated, key))
+    cursor.execute('UPDATE items SET item = ?, brakes_id = ?, category = ? WHERE id = ?', (item_updated,
+                                                                                           brakes_id_updated,
+                                                                                           category_updated,
+                                                                                           key))
     db.commit()

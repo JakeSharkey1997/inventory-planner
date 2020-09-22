@@ -26,7 +26,8 @@ def create_app():
         key = str(uuid.uuid4())
         item = request.json['item']
         brakes_id = request.json['brakesId']
-        db.add_item(key, item, brakes_id)
+        category = request.json['category']
+        db.add_item(key, item, brakes_id, category)
         return 'Added item'
 
     @app.route('/del-item', methods=['DELETE'])
@@ -44,7 +45,8 @@ def create_app():
         key = request.json['key']
         item_updated = request.json['item']
         brakes_id_updated = request.json['brakesId']
-        db.edit_item(key, item_updated, brakes_id_updated)
+        category_updated = request.json['category']
+        db.edit_item(key, item_updated, brakes_id_updated, category_updated)
         return 'Item edited'
 
     return app
