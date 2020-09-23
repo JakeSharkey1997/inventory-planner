@@ -1,0 +1,6 @@
+version: "2.1"
+services:
+    inventory-planner:
+      build: .
+      ports:
+        - "5000:8081"

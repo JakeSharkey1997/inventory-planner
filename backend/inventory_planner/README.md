@@ -5,4 +5,6 @@ Our shopping list and brakes id for each item so that it can be quickly ordered.
 ```
 flask run
 flask init-db
+
+docker-compose up --build
 ```
