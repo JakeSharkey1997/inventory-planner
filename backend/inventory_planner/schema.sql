@@ -2,17 +2,16 @@ DROP TABLE IF EXISTS items;
 DROP TABLE IF EXISTS category;
 
 CREATE TABLE items (
-    id TEXT UNIQUE NOT NULL,
+    id VARCHAR(36) NOT NULL,
     item TEXT NOT NULL,
     brakes_id TEXT,
-    category TEXT NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (category) REFERENCES category(id)
+    category VARCHAR(36) NOT NULL REFERENCES category(id),
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE category (
-    id TEXT UNIQUE NOT NULL,
-    title TEXT UNIQUE NOT NULL,
+    id VARCHAR(36) NOT NULL,
+    title TEXT NOT NULL,
     PRIMARY KEY (id)
 );
 
