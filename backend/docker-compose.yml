@@ -4,6 +4,8 @@ services:
       build: .
       links:
         - inventory-planner-db
+      depends_on:
+        - inventory-planner-db
       ports:
         - "5000:5000"
       networks:
@@ -31,5 +33,17 @@ services:
             - inventory-planner-db.home
       container_name: inventory-planner-db
       hostname: inventory-planner-db
+    inventory-planner-db-seeder:
+      build: inventory_planner_db_seeder/
+      links:
+        - inventory-planner-db
+      depends_on:
+        - inventory-planner-db
+      networks:
+        net:
+          aliases:
+            - inventory-planner-db-seeder.home
+      container_name: inventory-planner-db-seeder
+      hostname: inventory-planner-db-seeder
 networks:
   net:

@@ -1,6 +1,5 @@
 FROM python:3.7
 
-RUN apt update && apt install -y default-mysql-client
 RUN mkdir /app
 WORKDIR /app
 ADD . /app/
